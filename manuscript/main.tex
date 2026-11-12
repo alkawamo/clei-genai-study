@@ -363,28 +363,29 @@ Intermediate students decomposed the redesign into modular functional prompts. T
 \paragraph{Pattern 3: Heuristic Auditing and Bug Correction (Advanced Designers).}
 Advanced developers engaged in rigorous adversarial testing. Upon executing ChatGPT's code locally, they identified subtle functional regressions, layout bugs, and accessibility violations, issuing precise technical counter-directives.
 
-Listing \ref{lst:advanced_prompt} presents an authentic dialogue sequence from an advanced participant (Participant P02), illustrating how the student detected that ChatGPT's visual highlight washed out text contrast and actively forced the model to implement dedicated CSS classes and keyboard navigation.
+Listing \ref{lst:advanced_prompt} presents an authentic multi-turn prompt evolution transcript from Participant P08, illustrating the empirical progression across the three interaction layers theorized in Section \ref{subsec:prompt_evolution}: from initial surface-level delegation (Layer 1), through iterative enforcement of assistive technology and keyboard navigation (Layer 2), to surgical debugging of contrast washouts and theme state management (Layer 3).
 
-\begin{lstlisting}[caption={Exemplary Dialogue Transcript from an Advanced Student (P02, translated from Portuguese).}, label={lst:advanced_prompt}]
-// Iteration 1: Explicit Multi-Constraint Prompting
-"I am developing an accessible version of the Genius game for older adults.
-I want you to:
-1. Apply accessibility guidelines (reduced memory, vision, hearing):
-   - High and adjustable contrast (light/dark mode);
-   - Scalable fonts via CSS;
-   - Multimodal feedback (audio + text);
-   - Large, generously spaced buttons.
-2. Improve semantics and assistive technology support:
-   - <button> elements with aria-label attributes;
-   - WAI-ARIA roles (role='status', aria-live='polite');
-   - Visible focus indicators and keyboard support (Tab + Enter)."
+\begin{lstlisting}[caption={Representative Multi-Turn Prompt Evolution Transcript Across Interaction Layers (Participant P08, translated from Portuguese).}, label={lst:advanced_prompt}]
+// Turn 1 (Initial Delegation - Layer 1: Surface Aesthetics)
+"Create an accessible version of the Genius game for older adults.
+The interface must feature large, readable fonts and slower animation pacing."
+-> Model Output: Produces working game with 24px buttons, but lacks keyboard controls,
+   contains no WAI-ARIA tags, and maintains default low-contrast pastel colors.
 
-// Iteration 2: Correcting AI Regressions and Refining Layout
-"The generated code worked, but I need 3 critical corrections:
-1. Upon activating colors, filter:brightness(1.5) washed out the text.
-   Remove the filter and create dedicated .highlight-[color] classes with vibrant tones.
-2. Center the text color labels inside each quadrant.
-3. Add an explicit textual round counter."
+// Turn 3 (Assistive Technology Enforcement - Layer 2: Structural Semantics)
+"The buttons work with the mouse, but screen-reader users and motor-impaired players
+cannot play the game. I need two structural accessibility upgrades:
+1. Add full WAI-ARIA semantics (role='status', aria-live='polite' for game announcements);
+2. Implement complete keyboard navigation (Tab focus outlines, Enter/Space key listeners)."
+-> Model Output: Injects keyboard listeners and aria tags, but introduces a visual bug
+   where button activation uses filter:brightness(1.5), washing out textual labels.
+
+// Turn 6 (State Management & Bug Fixing - Layer 3: Pragmatic Contrast)
+"The game logic works, but visual contrast is compromised during gameplay:
+1. When a button flashes, the brightness filter washes out the white text label.
+   Remove the filter and create dedicated .highlight-[color] classes with vibrant borders.
+2. Add a persistent high-contrast toggle switch (Dark/Light mode) that preserves
+   WCAG Level AA contrast ratios (>= 4.5:1) in both states."
 \end{lstlisting}
 
 \subsection{Objective Accessibility Heuristic Audit of Generated Artifacts}
