@@ -8,10 +8,18 @@
 \usepackage{amssymb}
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{placeins}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage[utf8]{inputenc}
+
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{6}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
 
 \lstset{
   basicstyle=\ttfamily\footnotesize,
@@ -238,7 +246,7 @@ Behavioral Intention (BI)   & 0.810 & 0.565 \\
 \subsection{Paired Inferential Testing: Parametric and Non-Parametric}
 To evaluate whether the instructional workshop and practical task induced significant changes in technology acceptance, we conducted both paired-sample Student's $t$-tests and non-parametric Wilcoxon signed-rank tests \cite{wilcoxon1945individual} ($N = 41$). Standardized effect sizes were calculated using Cohen's $d$ for paired observations \cite{cohen1988statistical} ($d = \bar{D} / s_D$). Usability perceptions and task friction were contextualized following standardized usability evaluation metrics \cite{finstad2010usability}.
 
-Table \ref{tab:paired_tests} provides the comparative results. In portrait orientation, the table has been scaled to fit within standard journal margins using `\resizebox`.
+Table \ref{tab:paired_tests} provides the comparative results.
 
 \begin{table*}[t]
 \centering
@@ -348,6 +356,7 @@ Advanced ($>$10 corporate)& 4 & 28 & 7.0 (3.56) \\
 
 While novices required an average of only 2.8 prompt attempts, advanced developers required an average of 7.0 attempts, with individual cases exceeding 10 to 15 iterations. A Spearman rank correlation between prompt iterations and Effort Expectancy shift ($\Delta EE$) confirmed a statistically significant negative association ($\rho = -0.342, p = 0.041$). Participants who were compelled to execute extensive prompt iterations developed a more critical, tempered appraisal of the cognitive effort demanded by conversational code generation.
 
+\FloatBarrier
 \section{Prompt Engineering Dynamics and Objective Code Audit}
 \label{sec:audit}
 
@@ -388,6 +397,7 @@ cannot play the game. I need two structural accessibility upgrades:
    WCAG Level AA contrast ratios (>= 4.5:1) in both states."
 \end{lstlisting}
 
+\FloatBarrier
 \subsection{Objective Accessibility Heuristic Audit of Generated Artifacts}
 To resolve the critical limitation of prior studies that relied exclusively on subjective questionnaires, we conducted an objective heuristic audit of all 26 submitted executable HTML5/JavaScript game interfaces. Each software artifact was evaluated against Web Content Accessibility Guidelines (WCAG 2.1 Level AA) and established gerontechnology design criteria.
 
