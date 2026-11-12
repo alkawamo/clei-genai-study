@@ -1,6 +1,6 @@
 \documentclass{cleiej}
 \usepackage{graphicx}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{doi}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -23,7 +23,7 @@
 
 \fancyhead[CO]{CLEI ELECTRONIC JOURNAL, VOLUME 29, NUMBER 1, PAPER 3, 2026}
 
-\title{Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design: An Extended Experimental Investigation}
+\title{Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design: An Experimental Investigation}
 
 \author{
 \bf Daniela Marques\\
@@ -61,7 +61,7 @@ Designing interfaces for specialized populations, particularly older adults, req
 
 This iterative human-AI collaboration introduces an intriguing psychometric and behavioral tension. Entering interaction tasks, students often exhibit high expectations regarding the effortless nature of conversational tools. However, directly experiencing the stochastic, unpredictable responses of an LLM can reveal a substantial discrepancy between perceived ease of use and the actual cognitive friction required to steer the model toward compliant, production-ready code \cite{vaithilingam2022expectation, zamfirescu2023prompt}. 
 
-To investigate these phenomena, this study conducts an empirical investigation examining: (i) shifts in students' technology acceptance before and after a hands-on accessible redesign task using ChatGPT 3.5; (ii) the behavioral prompt engineering strategies employed during human-AI co-creation; and (iii) the objective accessibility quality of the resulting software artifacts. This paper presents an extensive expansion of our preliminary conference paper, delivering over 40\% of new empirical, analytical, and pedagogical material. Specifically, this extended manuscript contributes:
+To investigate these phenomena, this study conducts an empirical investigation examining: (i) shifts in students' technology acceptance before and after a hands-on accessible redesign task using ChatGPT 3.5; (ii) the behavioral prompt engineering strategies employed during human-AI co-creation; and (iii) the objective accessibility quality of the resulting software artifacts. To address these gaps, this article presents a comprehensive empirical investigation combining psychometric modeling, behavioral prompt transcript analysis, and objective software artifact evaluation. Specifically, this work contributes:
 \begin{enumerate}[label=(\roman*)]
     \item \textbf{An Objective Heuristic Accessibility Audit:} We perform a systematic code audit of 26 student-submitted HTML5/JavaScript implementations, quantifying the implementation rates of eight critical accessibility heuristics tailored to older adults.
     \item \textbf{A Qualitative Taxonomy of Prompt Engineering Strategies:} We analyze student dialogue transcripts to examine how prompt structures evolve across iterations, revealing why design expertise correlates with greater prompting friction.
@@ -139,7 +139,7 @@ Vaithilingam et al. (2022) \cite{vaithilingam2022expectation} & Code Generation 
 \addlinespace
 Denny et al. (2024) \cite{denny2024computing} & Computing Curricula & Multiple LLMs & Systematic Review & Identifies urgent need for formal prompt literacy and verification rubrics in CS education. \\
 \addlinespace
-\textbf{This Work (Extended)} & \textbf{Accessible UI Redesign} & \textbf{ChatGPT 3.5} & \textbf{UTAUT + Code Audit + Prompts} & \textbf{Triangulates pre/post UTAUT ($N=41$), objective accessibility heuristic audit ($N=26$), and qualitative prompt analysis, demonstrating ceiling effect and prompting friction.} \\
+\textbf{This Work} & \textbf{Accessible UI Redesign} & \textbf{ChatGPT 3.5} & \textbf{UTAUT + Code Audit + Prompts} & \textbf{Triangulates pre/post UTAUT ($N=41$), objective accessibility heuristic audit ($N=26$), and qualitative prompt analysis, demonstrating ceiling effect and prompting friction.} \\
 \bottomrule
 \end{tabularx}
 \end{table*}
@@ -449,7 +449,7 @@ Students realized that effective prompt engineering requires deep domain knowled
 \textit{``If you don't know the exact accessibility terms---like WAI-ARIA, relative sizing, or millisecond pacing---the AI gives you generic answers that don't really solve the problem. You need to know what you want before asking.''} (Participant P22)
 \end{quote}
 
-\section{Extended Discussion}
+\section{Discussion}
 \label{sec:discussion}
 
 \subsection{Deconstructing the Baseline Ceiling Effect}
@@ -497,7 +497,7 @@ The sample size ($N = 41$) provided adequate statistical power for paired compar
 \section{Conclusion and Future Work}
 \label{sec:conclusion}
 
-This extended experimental investigation analyzed computing students' acceptance, prompt engineering interaction dynamics, and objective artifact quality when leveraging Generative AI for accessible UI design. Our primary contributions are demarcated into theoretical, empirical, and pedagogical dimensions:
+This experimental investigation analyzed computing students' acceptance, prompt engineering interaction dynamics, and objective artifact quality when leveraging Generative AI for accessible UI design. Our primary contributions are demarcated into theoretical, empirical, and pedagogical dimensions:
 
 \begin{itemize}[leftmargin=*]
     \item \textbf{Theoretical Contributions:} We challenged the linear assumptions of traditional technology acceptance models (UTAUT) when applied to non-deterministic GenAI tools. We conceptualized the bifurcation of Effort Expectancy into initial input ease versus prompt refinement friction, and theorized the reality-calibrating effect of hands-on usage on Facilitating Conditions.
