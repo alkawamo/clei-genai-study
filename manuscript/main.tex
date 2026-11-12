@@ -449,6 +449,53 @@ Students realized that effective prompt engineering requires deep domain knowled
 \textit{``If you don't know the exact accessibility terms---like WAI-ARIA, relative sizing, or millisecond pacing---the AI gives you generic answers that don't really solve the problem. You need to know what you want before asking.''} (Participant P22)
 \end{quote}
 
+\subsection{Prompt Evolution, Iterative Dynamics, and the Effort Expectancy Paradox}
+\label{subsec:prompt_evolution}
+To investigate how conversational prompt engineering unfolds across repeated attempts, we analyzed the progression of prompts and correlated each student's total iteration count with their objective artifact compliance and UTAUT psychometric shifts ($N = 26$ full interaction logs). 
+
+Participants were categorized into three distinct interaction tiers based on their conversational volume: \textit{Low Iterations} (2--3 attempts, $n = 9$), \textit{Moderate Iterations} (4 attempts, $n = 11$), and \textit{High Iterations} (5--7 attempts, $n = 6$). Table \ref{tab:prompt_evolution} presents the empirical compliance rates across all eight accessibility dimensions as a function of iteration tier.
+
+\begin{table*}[t]
+\centering
+\caption{Evolution of Accessibility Compliance and Objective Heuristic Scores Across Prompt Iteration Tiers ($N = 26$).}
+\label{tab:prompt_evolution}
+\small
+\begin{tabularx}{\textwidth}{p{5.2cm} c c c}
+\toprule
+\textbf{Accessibility Dimension / Heuristic} & \textbf{Low Iterations (2--3)} & \textbf{Moderate Iterations (4)} & \textbf{High Iterations (5--7)} \\
+& \textbf{($n = 9$)} & \textbf{($n = 11$)} & \textbf{($n = 6$)} \\
+\midrule
+Font Size Scaling / Typography (\% adopted)   & 100.0\% (9/9)   & 100.0\% (11/11) & 100.0\% (6/6) \\
+Textual Color Name Labels (\% adopted)        & 100.0\% (9/9)   & 100.0\% (11/11) & 100.0\% (6/6) \\
+Pacing and Timing Control (\% adopted)        & 100.0\% (9/9)   & 100.0\% (11/11) & 100.0\% (6/6) \\
+Multimodal Audio Feedback (\% adopted)        & 100.0\% (9/9)   & 81.8\% (9/11)   & 100.0\% (6/6) \\
+Explicit Round State Indicator (\% adopted)   & 55.6\% (5/9)    & 45.5\% (5/11)   & 50.0\% (3/6) \\
+Full Keyboard Navigation (Tab/Enter) (\% adopted) & 44.4\% (4/9) & 81.8\% (9/11)  & 83.3\% (5/6) \\
+WAI-ARIA Semantic Markup (\% adopted)         & 11.1\% (1/9)    & 90.9\% (10/11)  & 83.3\% (5/6) \\
+High-Contrast / Dark Theme Toggle (\% adopted)& 11.1\% (1/9)    & 9.1\% (1/11)    & 100.0\% (6/6) \\
+\midrule
+\textbf{Mean Accessibility Score (out of 8)}   & \textbf{5.22 $\pm$ 0.83} & \textbf{6.09 $\pm$ 0.94} & \textbf{7.17 $\pm$ 0.75} \\
+\textbf{Normalized Compliance Percentage}      & \textbf{65.3\%}          & \textbf{76.1\%}          & \textbf{89.6\%} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\paragraph{The Three-Layer Hierarchical Architecture of Prompt Evolution.}
+The cross-tier analysis in Table \ref{tab:prompt_evolution} reveals a pronounced hierarchical progression in how accessibility features are successfully elicited from LLMs:
+\begin{enumerate}[label=\textbf{Layer \arabic*:}, leftmargin=*]
+    \item \textbf{Superficial / Immediate Layer (Initial Prompt, 100\% across all tiers):} Surface-level visual accommodations---such as enlarged base fonts, explicit color name labels, and slowed gameplay intervals---are consistently generated upon the very first prompt turn. Because LLMs readily associate terms like ``accessibility for older adults'' with large buttons and slow pacing, even participants who conducted minimal iterations achieved perfect compliance in these superficial dimensions.
+    \item \textbf{Structural / Assistive Technology Layer (Iterative Prompts 2--4):} In sharp contrast, deep assistive capabilities---specifically keyboard event handling and WAI-ARIA semantic roles---rarely appear spontaneously in the LLM's initial output. In the Low Iterations tier, WAI-ARIA compliance was a negligible 11.1\% and keyboard navigation was only 44.4\%. However, as students tested the code in the browser and issued targeted secondary prompts, compliance dramatically surged to 90.9\% for WAI-ARIA and 81.8\% for keyboard navigation in the Moderate tier.
+    \item \textbf{Pragmatic / State Management Layer (Refinement Prompts 5--7):} Dynamic theme toggling (Light/Dark mode with WCAG-compliant contrast preservation) proved to be the most complex hurdle. In both the Low (11.1\%) and Moderate (9.1\%) tiers, students almost completely failed to implement dynamic contrast toggling, often because ChatGPT introduced visual regressions that washed out button text when active. Only participants in the High Iterations tier (5--7 attempts) systematically resolved these styling regressions, driving theme toggle compliance to a full 100.0\% and achieving an overall heuristic score of 7.17 out of 8 (89.6\%).
+\end{enumerate}
+
+\paragraph{Statistical Validation and the Effort Expectancy Paradox.}
+Correlation analysis validates the critical role of conversational persistence. The total number of prompt iterations exhibited a statistically significant positive correlation with the final objective accessibility score ($r = +0.482$, $p < 0.05$). This confirms that higher artifact quality is not an accidental byproduct of model stochasticity, but the direct result of sustained human-AI conversational dialogue.
+
+Crucially, the data uncovers what we designate as the \textbf{Effort Expectancy Paradox}. While prompt iterations strongly improved code quality, they exhibited a negative correlation with post-intervention Effort Expectancy ($r = -0.305$). Students who performed only 2--3 superficial iterations rated Effort Expectancy very high, harboring the illusion that generative AI effortlessly automates frontend engineering. Conversely, students who persevered through 5--7 iterations confronted the cognitive friction of conversational debugging---inspecting broken CSS, resolving destroyed event listeners, and articulating precise contra-instructions. Consequently, rigorous designers recalibrated their expectations downward, realizing that achieving genuine WCAG compliance with LLMs demands substantial, highly skilled human effort.
+
+\paragraph{Discourse and Pragmatic Shift Across Iterations.}
+Linguistic examination of the interaction logs demonstrates a distinct pragmatic evolution. While Prompt 1 universally adopted a \textit{declarative and delegative speech act} (e.g., ``Create an accessible Genius game for seniors with...''), subsequent iterations shifted to \textit{directive code-review critiques} (e.g., ``The brightness filter broke the text contrast; delete that filter and create dedicated CSS classes with vibrant borders''). Furthermore, the lexical density of domain-specific terminology (e.g., \texttt{aria-live="polite"}, \texttt{tabindex="0"}, relative rem units) increased by over 240\% between the first and final iterations, demonstrating that successful conversational engineering requires designers to progressively transition from high-level user stories to rigorous technical specifications.
+
 \section{Discussion}
 \label{sec:discussion}
 
