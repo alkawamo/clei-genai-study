@@ -75,6 +75,6 @@ If using this dataset, please cite:
   author={Marques, Daniela and Kawamoto, Andr{\'e} Luiz Satoshi and Martins, Val{\'e}ria Farinazzo},
   journal={CLEI Electronic Journal},
   year={2026},
-  note={Replication Dataset on Zenodo: DOI: 10.5281/zenodo.XXXXXXX}
+  note={Replication Dataset on Zenodo: DOI: 10.5281/zenodo.24170706}
 }
 ```
