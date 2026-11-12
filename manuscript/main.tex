@@ -365,26 +365,26 @@ Advanced developers engaged in rigorous adversarial testing. Upon executing Chat
 
 Listing \ref{lst:advanced_prompt} presents an authentic dialogue sequence from an advanced participant (Participant P02), illustrating how the student detected that ChatGPT's visual highlight washed out text contrast and actively forced the model to implement dedicated CSS classes and keyboard navigation.
 
-\begin{lstlisting}[caption={Exemplary Dialogue Transcript from an Advanced Student (P02).}, label={lst:advanced_prompt}]
+\begin{lstlisting}[caption={Exemplary Dialogue Transcript from an Advanced Student (P02, translated from Portuguese).}, label={lst:advanced_prompt}]
 // Iteration 1: Explicit Multi-Constraint Prompting
-"Estou desenvolvendo uma versao acessivel do jogo Genius para idosos. 
-Quero que voce:
-1. Aplique diretrizes de acessibilidade (memoria reduzida, visao, audicao):
-   - Contraste alto e ajustavel (modo claro/escuro);
-   - Fontes dimensionaveis via CSS;
-   - Feedback multimodal (audio + texto);
-   - Botoes grandes e espacados.
-2. Melhore a semantica e suporte a tecnologias assistivas:
-   - Elementos <button> com aria-label;
-   - Roles ARIA (role='status', aria-live='polite');
-   - Indicadores de foco visiveis e suporte a teclado (Tab + Enter)."
+"I am developing an accessible version of the Genius game for older adults.
+I want you to:
+1. Apply accessibility guidelines (reduced memory, vision, hearing):
+   - High and adjustable contrast (light/dark mode);
+   - Scalable fonts via CSS;
+   - Multimodal feedback (audio + text);
+   - Large, generously spaced buttons.
+2. Improve semantics and assistive technology support:
+   - <button> elements with aria-label attributes;
+   - WAI-ARIA roles (role='status', aria-live='polite');
+   - Visible focus indicators and keyboard support (Tab + Enter)."
 
 // Iteration 2: Correcting AI Regressions and Refining Layout
-"O codigo gerado funcionou, mas preciso de 3 correcoes criticas:
-1. Ao ativar a cor, filter:brightness(1.5) clareou demais e sumiu o texto. 
-   Remova o filter e crie classes .highlight-[cor] com cores vivas.
-2. Centralize os nomes das cores nos quadrantes.
-3. Adicione um indicador textual explicito da rodada."
+"The generated code worked, but I need 3 critical corrections:
+1. Upon activating colors, filter:brightness(1.5) washed out the text.
+   Remove the filter and create dedicated .highlight-[color] classes with vibrant tones.
+2. Center the text color labels inside each quadrant.
+3. Add an explicit textual round counter."
 \end{lstlisting}
 
 \subsection{Objective Accessibility Heuristic Audit of Generated Artifacts}
