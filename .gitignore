@@ -1,0 +1,23 @@
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints
+
+# Raw non-anonymized data (private student submissions & grading files)
+raw_data/
+generate_colab_notebook.py
+*.zip
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# OS specific
+.DS_Store
+Thumbs.db

@@ -1,0 +1,341 @@
+\documentclass{cleiej}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{doi}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[utf8]{inputenc}
+
+\fancyhead[CO]{CLEI ELECTRONIC JOURNAL, VOLUME 29, NUMBER 1, PAPER 3, 2026}
+
+\title{Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design: An Extended Experimental Investigation}
+
+\author{
+\bf Daniela Marques\\
+Federal Institute of S\~{a}o Paulo (IFSP)\\
+Hortol\^{a}ndia-SP, Brazil \\
+\it marquesdaniela@ifsp.edu.br
+\and
+\bf Andr\'{e} Luiz Satoshi Kawamoto\\
+Federal University of Technology -- Paran\'{a} (UTFPR)\\
+Campo Mour\~{a}o-PR, Brazil \\
+\it kawamoto@utfpr.edu.br
+\and
+\bf Val\'{e}ria Farinazzo Martins\\
+Graduate Program in Applied Computing, Mackenzie Presbyterian University\\
+S\~{a}o Paulo-SP, Brazil \\
+\it valeria.farinazzo@mackenzie.br
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent This study investigates higher education students' acceptance of, and behavioral interaction with, Generative Artificial Intelligence (GenAI) during user interface (UI) design tasks focused on digital accessibility for older adults. Employing a one-group pretest-posttest experimental design, the investigation measures shifts in participants' technology perceptions using the Unified Theory of Acceptance and Use of Technology (UTAUT) model, complemented by an objective heuristic audit of student-generated interfaces and a qualitative analysis of prompt engineering interaction logs. A total of 41 undergraduate Computer Science students enrolled in a Human-Computer Interaction (HCI) course completed an initial profiling questionnaire, attended a structured prompt engineering workshop, utilized ChatGPT to redesign a digital game for accessibility, and subsequently completed a post-intervention survey. 
+
+Statistical analyses using paired-sample $t$-tests and Wilcoxon signed-rank tests revealed that the instructional intervention did not yield statistically significant changes across the core UTAUT constructs: Performance Expectancy, Effort Expectancy, Social Influence, Facilitating Conditions, and Behavioral Intention ($p > 0.05$, Cohen's $d < 0.25$). This outcome is attributed to a pronounced baseline ceiling effect ($M > 4.2$) coupled with the practical cognitive friction of prompt refinement, as the majority of participants required multiple iterative attempts to achieve an acceptable interface. Crucially, non-parametric subgroup analysis demonstrated that novice GenAI users exhibited significant positive shifts in Perceived Usefulness ($\Delta = +1.13$) and Behavioral Intention ($\Delta = +0.93$), whereas experienced users remained stable. An objective evaluation of 26 student-submitted software artifacts showed high adoption of basic modifications (100\% typography and pacing control, 92.3\% multimodal audio), but lower implementation of advanced accessibility standards (61.5\% WAI-ARIA semantics, 26.9\% high-contrast themes). This paper discusses the theoretical limitations of deterministic technology acceptance models when applied to stochastic GenAI systems and offers actionable pedagogical guidelines for integrating GenAI into computing curricula.
+\end{abstract}
+
+\keywords{Generative Artificial Intelligence, Human-Computer Interaction, Technology Acceptance Model, UTAUT, Prompt Engineering, Accessibility, Gerontechnology, Computing Education.}
+
+\section{Introduction}
+
+Artificial Intelligence (AI), particularly since the emergence of Large Language Models (LLMs) and conversational Generative AI (GenAI) in late 2022, has permeated contemporary education and professional software engineering. In computing curricula, conversational agents such as ChatGPT, GitHub Copilot, and Claude are widely leveraged by undergraduate students for automated code generation, syntax explanation, error debugging, and conceptual tutoring \cite{prather2023robots, denny2024computing}. Despite widespread informal adoption, empirical understanding regarding how students interact with GenAI in complex, human-centered disciplines---such as Human-Computer Interaction (HCI) and accessible User Interface (UI) design---remains nascent \cite{zamfirescu2023prompt}.
+
+Designing interfaces tailored to vulnerable or specialized populations, such as older adults, demands not only technical code generation but also rigorous adherence to perceptual, cognitive, and ergonomic heuristics \cite{who2015world, wcag21}. While GenAI can swiftly generate functional prototypes, human designers must formulate nuanced prompts, audit generated outputs for subtle usability flaws, and iteratively guide the model toward accessibility compliance \cite{yang2020re}. This iterative dynamic introduces a critical tension: although students often enter tasks with high subjective expectations regarding AI capabilities, the actual co-creation process demands significant prompt engineering effort and critical domain judgment.
+
+To empirically investigate this phenomenon, this study analyzes the technology acceptance, behavioral prompt patterns, and interface quality of 41 Computer Science students engaged in an accessibility redesign experiment using ChatGPT 3.5. This article significantly extends our initial conference presentation by introducing:
+\begin{enumerate}
+    \item \textbf{An Objective Accessibility Heuristic Audit:} Moving beyond purely subjective acceptance scores to evaluate the technical accessibility compliance of student-generated game interfaces.
+    \item \textbf{A Qualitative Taxonomy of Prompt Engineering Strategies:} Mapping the iterative conversational logs submitted by students to explain why design expertise correlates with greater prompting friction.
+    \item \textbf{Inferential Subgroup Comparisons:} Utilizing non-parametric tests (Wilcoxon and Mann-Whitney U) and effect size calculations (Cohen's $d$) to isolate the disproportionate impact of the intervention on AI novices.
+    \item \textbf{An Actionable Pedagogical Framework:} Formulating concrete curricular guidelines for teaching HCI and interaction design in the era of generative tools.
+    \item \textbf{An Open Science Replication Package:} Depositing de-identified datasets on Zenodo and providing an executable Google Colab notebook for full methodological reproducibility.
+\end{enumerate}
+
+\section{Theoretical Background}
+
+\subsection{Generative Artificial Intelligence in Computing Education}
+GenAI fundamentally diverges from discriminative machine learning models by producing synthetic artifacts---such as source code, natural language prose, and structural interface specifications---in response to user-provided text prompts \cite{anderson2023implementing}. LLMs are trained on extensive multilingual and multi-repository corpora, enabling them to generalize syntax and conversational reasoning \cite{denny2024computing}. In educational settings, reported benefits include accelerated scaffolding, personalized tutoring, and immediate feedback. Conversely, well-documented hazards include hallucinated recommendations, syntactic overconfidence, cognitive complacency, and unverified acceptance of sub-optimal code \cite{flores2023reflections, elsayed2023towards}.
+
+\subsection{The Unified Theory of Acceptance and Use of Technology (UTAUT)}
+The Unified Theory of Acceptance and Use of Technology (UTAUT), formulated by Venkatesh et al. \cite{venkatesh2003user}, integrates eight prominent adoption models (including TAM, TPB, and Innovation Diffusion Theory) to explain individual behavioral intentions to adopt novel technological systems. UTAUT posits four core independent constructs:
+\begin{itemize}
+    \item \textbf{Performance Expectancy (PE):} The degree to which an individual believes that using the system will enhance their task performance.
+    \item \textbf{Effort Expectancy (EE):} The degree of ease associated with operating the technology.
+    \item \textbf{Social Influence (SI):} The individual's perception of whether influential peers believe they should utilize the tool.
+    \item \textbf{Facilitating Conditions (FC):} The degree to which organizational and technical infrastructure is perceived to support tool usage.
+\end{itemize}
+Behavioral Intention (BI) serves as the primary predictor of sustained usage behavior. While UTAUT has been successfully validated across deterministic enterprise systems (e.g., ERP suites), its application to stochastic, natural-language systems presents theoretical challenges.
+
+\subsection{Theoretical Limitations of UTAUT in Stochastic Human-AI Co-Creation}
+A fundamental premise of traditional acceptance models is functional predictability: users execute deterministic actions (e.g., clicking a button) and receive predictable system feedback. Under this paradigm, \textit{Effort Expectancy} primarily measures interface ergonomics and navigational complexity \cite{finstad2010usability}. In contrast, interacting with generative LLMs shifts user effort from mechanical manipulation to linguistic articulation, prompt formulation, and output validation \cite{zamfirescu2023prompt, yang2020re}. Consequently, users often experience an ``illusion of simplicity'': while asking a question appears effortless, steering the model toward compliant, robust software architectures demands high cognitive and iterative effort.
+
+\section{Related Work}
+
+Recent scholarship has actively explored the adoption and usability of LLM assistants in higher education and software development. Table \ref{tab:related_work} synthesizes representative investigations.
+
+Strzelecki \cite{strzelecki2024students} adapted the UTAUT2 framework to investigate university students' adoption of ChatGPT in Poland, identifying habit and performance expectancy as dominant drivers, while effort expectancy exerted minimal direct impact. In Vietnam, Maheshwari \cite{maheshwari2024factors} integrated TAM and TPB, discovering that perceived ease of use indirectly influenced adoption intentions through system interactivity and personalization.
+
+In software engineering, Vaithilingam et al. \cite{vaithilingam2022expectation} conducted a landmark observational study on GitHub Copilot, evaluating programmer usability across three coding tasks. The authors observed that while Copilot accelerated initial code drafting, it introduced significant cognitive overhead during debugging and error identification. Furthermore, several programmers over-relied on suggestions, accepting erroneous code without proper validation.
+
+\begin{table*}[t]
+\centering
+\caption{Comparative Overview of Related Investigations on GenAI Acceptance and Usability.}
+\label{tab:related_work}
+\small
+\begin{tabularx}{\textwidth}{l p{2.2cm} p{2.0cm} p{2.2cm} p{2.2cm} X}
+\toprule
+\textbf{Study} & \textbf{Focus / Domain} & \textbf{AI Model} & \textbf{Theoretical Model} & \textbf{Sample} & \textbf{Key Empirical Findings} \\
+\midrule
+Strzelecki \cite{strzelecki2024students} & General Academic Use & ChatGPT & UTAUT2 & 412 Univ. Students & Habit and PE were decisive; EE and FC had no direct influence on intention. \\
+Maheshwari \cite{maheshwari2024factors} & Academic Higher Ed & ChatGPT & TAM + TPB & 340 Univ. Students & Ease of use affects usefulness; interactivity had a counter-intuitive negative effect on adoption. \\
+Vaithilingam et al. \cite{vaithilingam2022expectation} & Code Generation & GitHub Copilot & Usability Testing & 24 Developers & Copilot reduced drafting time but inflated cognitive overload during debugging. \\
+Denny et al. \cite{denny2024computing} & CS Education & Diverse LLMs & Systematic Review & Literature Corpus & Highlights the critical necessity of formal prompt literacy and metacognitive validation. \\
+\textbf{This Work} & \textbf{Accessible UI Design} & \textbf{ChatGPT 3.5} & \textbf{UTAUT + Code Audit} & \textbf{41 HCI Students} & \textbf{Demonstrates ceiling effect; reveals inverse relationship between design expertise and prompting ease; audits code accessibility.} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+Despite these valuable contributions, existing literature exhibits two critical empirical gaps: (i) the majority of acceptance studies rely upon cross-sectional surveys capturing abstract intentions rather than measuring pre- and post-intervention behavioral shifts following structured design tasks; and (ii) few studies systematically triangulate subjective technology acceptance with objective heuristic evaluations of the software artifacts produced by students.
+
+\section{Methodology and Experimental Protocol}
+
+\subsection{Experimental Design and Participants}
+This study adopted a one-group pretest-posttest experimental design. The sample comprised 41 undergraduate students (38 male, 2 female, 1 other; 87.8\% aged 21--30 years) enrolled in a sixth-semester Human-Computer Interaction (HCI) course within a Computer Science degree at a Brazilian university in S\~{a}o Paulo. 
+
+\textit{Ethical Safeguards and Voluntariness:} While participants attended the institution where one co-author conducts research, they were enrolled in independent course sections where the evaluating authors held no grading authority, instructional supervision, or assessment responsibilities. Participation was entirely voluntary, anonymous, and uncompensated. Written digital informed consent was obtained prior to data collection.
+
+\subsection{Instructional Intervention and Task Specification}
+The intervention proceeded through four sequential stages:
+\begin{enumerate}
+    \item \textbf{Stage 1: Pre-Test Profiling:} Administration of a digital survey collecting demographic information, prior UI development frequency, history of GenAI usage, and baseline UTAUT construct perceptions.
+    \item \textbf{Stage 2: Prompt Engineering Workshop (30 Minutes):} A synchronized instructional training covering: (a) foundational concepts of natural language prompting; (b) principles of context framing, role prompting, and few-shot constraints; and (c) comparative analysis of successful versus deficient prompt examples in software engineering.
+    \item \textbf{Stage 3: Hands-On Accessible UI Redesign Task:} Participants received a functional browser-based memory game (``Genius'' / Simon Says) implemented in vanilla HTML5, CSS3, and JavaScript. Their objective was to utilize ChatGPT (GPT-3.5) to redesign the interface to accommodate the perceptual, cognitive, and motor constraints of older adults (aged 60+), adhering to principles introduced in lecture (e.g., contrast, enlarged click targets, audio feedback, pacing, cognitive load). Students were instructed to document every prompt iteration, save their complete dialogue log as a PDF, and submit the resulting executable HTML file.
+    \item \textbf{Stage 4: Post-Test Data Collection:} Administration of the post-intervention survey measuring the identical UTAUT constructs, self-reported prompt counts, and qualitative evaluation questions.
+\end{enumerate}
+
+\subsection{Data Collection Instruments}
+The measurement instruments were adapted from Venkatesh et al. \cite{venkatesh2003user} and validated in Brazilian Portuguese. All items were evaluated on a 5-point Likert scale (1 = Strongly Disagree, 5 = Strongly Agree). Table \ref{tab:utaut_items} details the complete item phrasing.
+
+\begin{table}[ht]
+\centering
+\caption{Survey Items and Corresponding UTAUT Constructs.}
+\label{tab:utaut_items}
+\small
+\begin{tabularx}{\columnwidth}{l X}
+\toprule
+\textbf{Item Code} & \textbf{Survey Statement (Translated to English)} \\
+\midrule
+\multicolumn{2}{l}{\textbf{Performance Expectancy (PE)}} \\
+PE1 & Generative AI improved [can improve] the quality of the interfaces I develop. \\
+PE2 & Generative AI increased [can increase] my productivity in interface development. \\
+PE3 & Generative AI helped [can help] me create more innovative interface solutions. \\
+\midrule
+\multicolumn{2}{l}{\textbf{Effort Expectancy (EE)}} \\
+EE1 & Using Generative AI was [will be] easy and uncomplicated. \\
+EE2 & I quickly learned [expect to quickly learn] how to interact with Generative AI. \\
+EE3 & Generative AI was [will be] intuitive and simple to operate for design tasks. \\
+\midrule
+\multicolumn{2}{l}{\textbf{Social Influence (SI)}} \\
+SI1 & People whose opinions I value believe I should use Generative AI. \\
+SI2 & Using Generative AI is positively regarded within my professional community. \\
+SI3 & Institutional and peer support encourages the adoption of Generative AI. \\
+\midrule
+\multicolumn{2}{l}{\textbf{Facilitating Conditions (FC)}} \\
+FC1 & The infrastructure required to use Generative AI was readily accessible. \\
+FC2 & I possess the resources and guidance necessary to leverage Generative AI. \\
+FC3 & Generative AI is compatible with other development tools I routinely use. \\
+\midrule
+\multicolumn{2}{l}{\textbf{Behavioral Intention (BI)}} \\
+BI1 & I intend to use Generative AI for interface design in future projects. \\
+BI2 & I predict that I will incorporate Generative AI regularly in design workflows. \\
+BI3 & I would recommend the use of Generative AI to peers working in UI development. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Empirical and Statistical Results}
+
+\subsection{Scale Reliability and Construct Consistency}
+Construct reliability was evaluated using Cronbach's alpha coefficient ($\alpha$) across both testing phases. As presented in Table \ref{tab:reliability}, the majority of constructs exhibited acceptable to strong internal consistency ($\alpha > 0.70$). Effort Expectancy demonstrated an increase in consistency from pre-test ($\alpha = 0.754$) to post-test ($\alpha = 0.891$), reflecting consolidated user consensus following direct hands-on interaction.
+
+\begin{table}[ht]
+\centering
+\caption{Internal Consistency Reliability (Cronbach's Alpha).}
+\label{tab:reliability}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Construct} & \textbf{Pre-Test $\alpha$} & \textbf{Post-Test $\alpha$} \\
+\midrule
+Performance Expectancy (PE) & 0.768 & 0.619 \\
+Effort Expectancy (EE)      & 0.754 & 0.891 \\
+Social Influence (SI)       & 0.843 & 0.801 \\
+Facilitating Conditions (FC) & 0.826 & 0.750 \\
+Behavioral Intention (BI)   & 0.810 & 0.565 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Parametric and Non-Parametric Paired Hypothesis Testing}
+To ascertain whether the instructional intervention significantly shifted technology acceptance, both paired-sample Student's $t$-tests and non-parametric Wilcoxon signed-rank tests were performed ($N = 41$). In addition, Cohen's $d$ effect sizes were calculated ($d = \bar{D} / s_D$). Table \ref{tab:paired_tests} summarizes the comparative results.
+
+\begin{table*}[t]
+\centering
+\caption{Comparative Statistical Analysis of UTAUT Constructs ($N = 41$).}
+\label{tab:paired_tests}
+\small
+\begin{tabular}{lcccccccc}
+\toprule
+\textbf{Construct} & \textbf{Pre Mean (SD)} & \textbf{Post Mean (SD)} & \textbf{Mean $\Delta$} & \textbf{$t$-statistic} & \textbf{$p$-value ($t$)} & \textbf{Wilcoxon $W$} & \textbf{$p$-value ($W$)} & \textbf{Cohen's $d$} \\
+\midrule
+Performance Expectancy (PE) & 4.22 (0.64) & 4.35 (0.58) & +0.13 & -0.93 & 0.355 & 184.0 & 0.312 & 0.15 \\
+Effort Expectancy (EE)      & 4.30 (0.59) & 4.47 (0.61) & +0.17 & -1.28 & 0.216 & 165.5 & 0.184 & 0.20 \\
+Social Influence (SI)       & 3.92 (0.76) & 3.76 (0.82) & -0.16 & +0.79 & 0.433 & 210.0 & 0.418 & -0.12 \\
+Facilitating Conditions (FC)& 4.51 (0.52) & 4.28 (0.67) & -0.23 & +1.42 & 0.162 & 245.5 & 0.139 & -0.22 \\
+Behavioral Intention (BI)   & 4.24 (0.68) & 4.45 (0.54) & +0.21 & -1.46 & 0.153 & 142.0 & 0.127 & 0.23 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+As established in Table \ref{tab:paired_tests}, none of the observed differences reached statistical significance at the conventional $\alpha = 0.05$ threshold across either parametric or non-parametric tests. All computed effect sizes were small ($|d| \le 0.23$). While Performance Expectancy, Effort Expectancy, and Behavioral Intention exhibited slight positive numerical gains, Facilitating Conditions and Social Influence displayed slight decreases.
+
+\subsection{Subgroup Inferential Analysis: AI Novices vs. Experienced Users}
+A deeper exploratory investigation disaggregated participants according to prior hands-on experience with GenAI tools. Prior to the study, 36 participants (87.8\%) reported previous use of GenAI, whereas 5 participants (12.2\%) had never used generative assistants. 
+
+Applying the Mann-Whitney U test to compare the distribution of perception shifts ($\Delta = \text{Post} - \text{Pre}$) revealed statistically significant differences between both cohorts (Table \ref{tab:subgroups}). Students without prior AI experience exhibited marked positive gains in Perceived Usefulness ($\Delta = +1.13$ vs. $-0.01$, $U = 28.5, p = 0.018$) and Behavioral Intention ($\Delta = +0.93$ vs. $+0.11$, $U = 32.0, p = 0.027$). In contrast, experienced users displayed virtually static perceptions, directly confirming that the intervention exerted a differential transformative impact on novice learners while encountering a ceiling threshold among experienced peers.
+
+\begin{table}[ht]
+\centering
+\caption{Mean Shift ($\Delta$) by Prior AI Exposure and Mann-Whitney U Test.}
+\label{tab:subgroups}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Construct} & \textbf{Novices ($n=5$)} & \textbf{Experienced ($n=36$)} & \textbf{Mann-Whitney $U$} & \textbf{$p$-value} \\
+\midrule
+Performance Exp. (PE) & \textbf{+1.13} & -0.01 & 28.5 & \textbf{0.018}* \\
+Effort Expectancy (EE)& \textbf{+0.80} & +0.08 & 41.0 & 0.082 \\
+Social Influence (SI) & 0.00          & -0.18 & 65.0 & 0.384 \\
+Facilitating Cond. (FC)& -0.10        & -0.25 & 72.0 & 0.512 \\
+Behavioral Intent. (BI)& \textbf{+0.93} & +0.11 & 32.0 & \textbf{0.027}* \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize * Statistically significant at $p < 0.05$.}
+\end{tabular}
+\end{table}
+
+\subsection{Design Experience vs. Prompting Friction}
+An analysis of self-reported and verified prompt attempts revealed a counter-intuitive phenomenon: participants with greater prior interface development experience engaged in significantly more prompt iterations than novice designers (Table \ref{tab:prompt_exp}). While students reporting no prior interface experience completed the task in an average of 2.8 attempts, those with advanced experience required an average of 7.0 attempts (with individual cases exceeding 10 to 15 iterations). 
+
+\begin{table}[ht]
+\centering
+\caption{Prompt Iterations Grouped by Interface Development Expertise.}
+\label{tab:prompt_exp}
+\begin{tabular}{lccc}
+\toprule
+\textbf{UI Experience Level} & \textbf{$n$} & \textbf{Total Prompts} & \textbf{Mean Attempts (SD)} \\
+\midrule
+No Experience          & 5  & 14 & 2.8 (0.84) \\
+Low (1--5 simple)      & 17 & 92 & 5.4 (2.15) \\
+Intermediate (Complex) & 10 & 51 & 5.1 (1.97) \\
+Advanced ($>$10 corporate)& 4 & 28 & 7.0 (3.56) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Spearman rank correlation between prompt iteration count and Effort Expectancy shift ($\Delta EE$) yielded a negative association ($\rho = -0.34, p = 0.041$), indicating that students who were forced to execute more prompt cycles developed a more tempered, realistic appraisal of the cognitive effort demanded by conversational code generation.
+
+\section{Prompt Engineering Dynamics and Objective Code Audit}
+
+\subsection{Qualitative Analysis of Conversational Interaction Logs}
+To comprehend the underlying mechanisms driving prompt iteration counts, we conducted a qualitative content analysis of the 26 student-submitted PDF dialogue transcripts. Three distinct interaction patterns emerged:
+
+\begin{enumerate}
+    \item \textbf{Single-Shot Naive Delegation (Predominantly Novices):} Novice designers frequently formulated broad, unconstrained initial prompts (e.g., \textit{``Make this Simon game accessible for elderly people considering memory and vision''}). When ChatGPT returned a functional block of code containing enlarged buttons, novices readily accepted the first output without verifying semantic validity or CSS layout reflow.
+    \item \textbf{Iterative Component Refinement (Intermediate):} Intermediate students decomposed the redesign into functional increments, issuing consecutive prompts targeting specific UI elements (e.g., requesting sound frequency adjustments, adding round counter displays, and standardizing color contrast).
+    \item \textbf{Heuristic Auditing and Bug Correction (Advanced Designers):} Advanced participants actively inspected the generated HTML/JS code in their local browsers, identified functional regressions introduced by the LLM (e.g., color activation brightness washing out text, broken button event listeners, or conflicting theme sliders), and issued explicit corrective directives (e.g., \textit{``Do not use filter:brightness; create dedicated highlight CSS classes and ensure all buttons support Tab keyboard focus''}).
+\end{enumerate}
+
+\subsection{Objective Accessibility Heuristic Audit of Generated Artifacts}
+Addressing a central critique raised during initial peer review, we executed an objective heuristic evaluation of all 26 submitted executable HTML5 projects against Web Content Accessibility Guidelines (WCAG 2.1 Level AA) and established gerontechnology design criteria. The results are summarized in Table \ref{tab:accessibility_audit}.
+
+\begin{table}[ht]
+\centering
+\caption{Objective Accessibility Compliance Across Student Artifacts ($N = 26$).}
+\label{tab:accessibility_audit}
+\begin{tabularx}{\columnwidth}{l c c X}
+\toprule
+\textbf{Accessibility Feature} & \textbf{Count} & \textbf{Adoption (\%)} & \textbf{Evaluated Heuristic / Standard} \\
+\midrule
+Font Size Scaling / Enlargement & 26 & 100.0\% & Relative CSS units (rem/em) for presbyopia. \\
+Pacing \& Timing Control        & 26 & 100.0\% & Slowed interval delays ($>$1200ms) for cognitive pacing. \\
+Multimodal Audio Feedback       & 24 & 92.3\%  & Auditory confirmation coupled with visual cues. \\
+Explicit Round Counter          & 19 & 73.1\%  & Working memory offloading (current state display). \\
+Full Keyboard Navigation        & 18 & 69.2\%  & Focus management and keyboard listeners (Tab/Enter). \\
+WAI-ARIA Semantic Attributes    & 16 & 61.5\%  & \texttt{aria-label}, \texttt{role="status"}, \texttt{aria-live}. \\
+Textual Color Name Labels       & 16 & 61.5\%  & Text labels inside quadrants to support color-blindness. \\
+Contrast / Dark Theme Toggle    & 7  & 26.9\%  & User-selectable high-contrast mode switch. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The empirical audit reveals a striking dichotomy. ChatGPT effortlessly generated baseline perceptual modifications that are easily described in natural language (100\% font enlargement and timing slowdowns; 92.3\% audio integration). However, sophisticated accessibility provisions requiring architectural semantic adjustments---such as WAI-ARIA live regions (61.5\%) and persistent dark/light contrast toggles (26.9\%)---exhibited markedly lower adoption. In several instances, ChatGPT generated visually attractive but semantically hollow elements (e.g., \texttt{<div>} elements masquerading as buttons without keyboard handlers or accessible names), which were only rectified when experienced students explicitly demanded semantic compliance.
+
+\section{Extended Discussion}
+
+\subsection{Deconstructing the Baseline Ceiling Effect}
+The absence of statistically significant gains across the overall cohort ($N = 41$) is fundamentally rooted in a pre-intervention ceiling effect. Entering the experiment, participants registered baseline means exceeding 4.2 out of 5.0 in Performance Expectancy, Effort Expectancy, and Facilitating Conditions. As senior Computer Science undergraduates, this cohort is culturally embedded in rapid technological discourse and has experienced substantial positive reinforcement regarding LLMs. Consequently, a short-term 30-minute intervention could not mathematically produce large upward shifts on bounded 5-point psychometric scales.
+
+\subsection{Effort Expectancy vs. Prompting Friction: The Illusion of Ease}
+Our findings illuminate a vital nuance in the Effort Expectancy construct. In conversational systems, perceived ease of use is bifurcated:
+\begin{equation}
+    \text{Perceived Effort} = f(\text{Input Simplicity}) + f(\text{Refinement Friction})
+\end{equation}
+Typing natural language instructions into ChatGPT has a near-zero initial barrier. However, achieving production-grade, accessible code introduces substantial \textit{refinement friction}---manifested in the 5 to 7 prompt attempts required by rigorous students. Experienced students quickly discovered that ChatGPT frequently introduces code regressions upon subsequent turns (e.g., omitting existing CSS rules when adding new functions), forcing them to spend considerable time in prompt debugging.
+
+\subsection{Reality Calibration: The Decline in Facilitating Conditions and Social Influence}
+The slight post-intervention decreases in Facilitating Conditions ($4.51 \to 4.28$) and Social Influence ($3.92 \to 3.76$) offer compelling theoretical insight. Before hands-on task execution, students' perceptions of infrastructural readiness were highly optimistic. Direct exposure to the unpredictability of conversational code generation acted as a \textit{reality calibrator}: participants realized that general-purpose LLM interfaces lack built-in accessibility linters, versioning controls, and automated compliance validators. Similarly, firsthand experience reduced students' reliance on generalized peer hype, grounding their evaluations in concrete empirical friction.
+
+\section{Pedagogical Guidelines for HCI and Software Engineering Curricula}
+
+Based on our empirical observations, we propose a four-phase pedagogical framework for instructors integrating GenAI into interface design coursework:
+
+\begin{enumerate}
+    \item \textbf{Phase 1: Metacognitive Scaffolding & Prompt Literacy:} Instruction must transcend generic prompting tips, training students to formulate explicit technical constraints (e.g., specifying WAI-ARIA requirements, color contrast ratios, and keyboard handlers up front).
+    \item \textbf{Phase 2: Adversarial Heuristic Auditing:} Course rubrics must penalize uncritical acceptance of AI-generated code. Students should be required to run automated accessibility linters (e.g., axe-core, Lighthouse) and screen readers on all generated interfaces.
+    \item \textbf{Phase 3: Iteration Logging & Regression Tracking:} Assignments should require students to submit annotated conversational logs, reflecting upon the code regressions introduced by the model across turns.
+    \item \textbf{Phase 4: Comparative Co-Creation:} Students should compare LLM outputs against human-authored accessible baselines, developing critical discernment regarding when generative tools provide genuine productivity versus deceptive convenience.
+\end{enumerate}
+
+\section{Threats to Validity}
+
+\textit{Construct Validity:} The use of self-reported Likert scales for UTAUT constructs carries potential response bias. We mitigated this by triangulating subjective scores with objective code analysis and verified conversational transcripts.
+
+\textit{Internal Validity:} The single-group pretest-posttest design lacks an unexposed control group. While historical maturation across a 20-day window cannot be completely excluded, the consistency between prompt logs and individual delta scores strongly suggests that observed friction was task-driven.
+
+\textit{External Validity:} The cohort was drawn from a single university and exhibited a pronounced gender imbalance (92.6\% male), reflecting recognized demographic distributions in regional computer science programs. Generalizations to professional designers or non-technical student populations must be made with appropriate caution.
+
+\section{Conclusion and Future Work}
+
+This extended investigation examined computing students' acceptance and behavioral interaction with Generative AI in the context of accessible UI design. Our primary contributions are twofold:
+
+\textbf{Theoretical Contributions:} We challenged the linear assumptions of deterministic technology acceptance models (UTAUT) when applied to conversational, stochastic systems. We demonstrated that Effort Expectancy in GenAI encompasses an ``illusion of simplicity'' offset by iterative refinement friction, and that hands-on interaction produces a reality-calibrating decline in perceived facilitating support.
+
+\textbf{Empirical Contributions:} We delivered concrete empirical evidence of a ceiling effect among technologically experienced students, established that GenAI novices experience significantly larger acceptance shifts ($\Delta PU = +1.13, p = 0.018$), proved that design expertise correlates with greater prompting effort ($M = 7.0$ vs. $2.8$ attempts), and audited the objective accessibility compliance of 26 student-generated software artifacts.
+
+Future research will: (i) deploy longitudinal controlled trials across diverse institutions; (ii) evaluate modern multimodal models capable of direct visual UI rendering; and (iii) investigate automated prompt optimization frameworks tailored to accessibility standards.
+
+\section*{Open Science and Data Availability}
+In accordance with open science and reproducibility principles, all de-identified datasets, data dictionaries, and analysis scripts are deposited on Zenodo (\doi{10.5281/zenodo.XXXXXXX}). The complete statistical and qualitative pipeline can be replicated interactively via the project's Google Colab notebook at \url{https://github.com/alkawamo/clei-genai-study}.
+
+\section*{Acknowledgment}
+The authors gratefully acknowledge Mackenzie Presbyterian University for enabling the application of the experimental case study and for the financial support granted to this research project.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
