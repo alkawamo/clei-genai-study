@@ -9,7 +9,7 @@ Dear Editor-in-Chief,
 
 We are pleased to submit the extended version of our paper entitled **"Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design: An Experimental Investigation"** for consideration for publication in the *CLEI Electronic Journal*.
 
-This manuscript is an extended version of a paper originally presented at CLEI 2026 (Submission #37). The original conference paper reported a pre/post UTAUT acceptance analysis of a one-group pretest-posttest study in which undergraduate Computer Science students used ChatGPT 3.5 to redesign a browser-based memory game for older adults. The present extended version preserves the original research questions and experimental protocol, but adds substantial new empirical, qualitative, and pedagogical material, as summarized below.
+This manuscript is an extended version of a paper originally presented at CLEI 2026 (Submission #37). The original conference paper reported a preliminary pre/post UTAUT acceptance analysis of a one-group pretest-posttest study in which undergraduate Computer Science students used ChatGPT 3.5 to redesign a browser-based memory game for older adults. The present extended version preserves the original research questions and experimental protocol, but adds substantial new empirical, qualitative, and pedagogical material, as summarized below.
 
 ## Summary of Extensions
 
@@ -17,7 +17,7 @@ This manuscript is an extended version of a paper originally presented at CLEI 2
 
 2. **Prompt evolution analysis and the Effort Expectancy Paradox (new Section 6.4, Table 9).** We categorized participants into three interaction-volume tiers (Low: 2–3 prompts, $n = 9$; Moderate: 4 prompts, $n = 11$; High: 5–7 prompts, $n = 6$) and documented a three-layer hierarchical progression in how accessibility features are successfully elicited from the LLM. We further identified a negative association between prompt iteration volume and post-intervention Effort Expectancy, which we designate as the *Effort Expectancy Paradox*.
 
-3. **Expanded inferential statistics (new Sections 5.3–5.6).** The conference version reported only paired $t$-tests. The extended version adds Wilcoxon signed-rank tests (zero differences excluded, effective sample size $N_{\text{eff}}$ reported), Cohen's *d* effect sizes, Bonferroni correction for multiple comparisons, granular item-level Wilcoxon tests for all 15 survey statements (Table 5), and non-parametric Mann-Whitney U subgroup comparisons between GenAI novices ($n = 5$) and experienced users ($n = 36$) (Table 6). All subgroup findings are qualified with respect to the small novice sample.
+3. **Expanded inferential statistics (new Sections 5.3–5.6).** The conference version reported only paired $t$-tests. The extended version adds Wilcoxon signed-rank tests (zero differences excluded, effective sample size $N_{\text{eff}}$ reported), Cohen's $d$ effect sizes, Bonferroni correction for multiple comparisons, granular item-level Wilcoxon tests for all 15 survey statements (Table 5), and non-parametric Mann-Whitney U subgroup comparisons between GenAI novices ($n = 5$) and experienced users ($n = 36$) (Table 6). All subgroup findings are qualified with respect to the small novice sample.
 
 4. **Substantially expanded Discussion (Section 7).** We develop the theoretical interpretation of the baseline ceiling effect, the **Refinement Friction** construct within Effort Expectancy, and the **reality-calibration** effect on Facilitating Conditions that explains the significant post-intervention declines in FC and SI.
 
@@ -27,9 +27,11 @@ This manuscript is an extended version of a paper originally presented at CLEI 2
 
 7. **Complete open-science replication package.** De-identified datasets, a data dictionary, an executable Google Colab notebook reproducing all statistical tables and figures, and all analysis scripts are permanently deposited on Zenodo (DOI: [10.5281/zenodo.24198695](https://doi.org/10.5281/zenodo.24198695)) and mirrored in a public GitHub repository ([https://github.com/alkawamo/clei-genai-study](https://github.com/alkawamo/clei-genai-study)).
 
-## Note on Dataset Revision
+## Note on Dataset Verification and Metric Harmonization
 
-Between the conference submission and this extended version, the raw dataset underwent a full verification, de-identification, and curation process. Participants who provided incomplete pre/post responses were excluded from the final analyzed sample, and all entries were cross-checked for coding consistency. The manuscript reports the final verified sample of $N = 41$ complete paired observations, which is the exact dataset deposited on Zenodo. Because the conference version and the present version were analyzed at different stages of this curation process, some descriptive statistics and inferential results differ between the two versions. Every value reported in the present manuscript is directly reproducible from the public replication package.
+The analyzed participant cohort ($N = 41$ paired pre/post observations) is identical between the conference version and this extended manuscript, as evidenced by the exactly identical baseline pre-intervention construct means (PE: 4.22, EE: 4.30, SI: 3.92, FC: 4.51, BI: 4.24). 
+
+Between the conference presentation and this journal submission, the dataset underwent a rigorous curation and verification protocol for FAIR-compliant open-science deposition. This process included automated scoring directly from the raw questionnaire instruments, cross-verification of demographic coding, and systematic re-computation of post-intervention metrics via reproducible Python scripts (replacing preliminary spreadsheet tabulations used during the initial conference submission). Consequently, minor discrepancies in post-test means and derived test statistics between the preliminary conference paper and the present manuscript reflect this automated data verification. Every value, test statistic, and table in this extended manuscript is directly and deterministically reproducible from the replication package archived on Zenodo.
 
 ## Compliance with the Extended-Paper Requirement
 
