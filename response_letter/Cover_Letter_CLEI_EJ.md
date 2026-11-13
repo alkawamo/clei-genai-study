@@ -66,7 +66,7 @@ Daniela Marques, André Luiz Satoshi Kawamoto, and Valéria Farinazzo Martins
 | :--- | :--- | :--- |
 | **1. Introduction** | Revised and expanded | Reframed contribution statement; six explicit contributions; open-science statement. |
 | **2. Theoretical Background** | Expanded | New Section 2.3 (critique of UTAUT for non-deterministic GenAI) introducing the Refinement Friction construct. |
-| **3. Related Work** | Substantially expanded | Conference version cited 3 studies; extended version adds 8 additional works and a comparative synthesis table (Table 1). |
+| **3. Related Work** | Substantially expanded | Conference version cited 3 studies; extended version cites 9 studies (adding 6 new works) and adds a comparative synthesis table (Table 1). |
 | **4. Experimental Methodology** | Expanded | New Table 2 (workshop syllabus); new Appendix A (full questionnaire items); ethical safeguards detailed. |
 | **5. Empirical and Statistical Results** | **Major revision and expansion** | Recomputed with corrected automated scoring; Wilcoxon tests, Cohen's *d*, Bonferroni correction, item-level tests (Table 5), subgroup Mann-Whitney comparisons (Table 6), prompt iterations by UI experience (Table 7). |
 | **6. Prompt Engineering Dynamics and Objective Code Audit** | **Entirely new** | Qualitative patterns of interaction logs; objective accessibility audit (Table 8); thematic analysis; prompt evolution tiers (Table 9). |
