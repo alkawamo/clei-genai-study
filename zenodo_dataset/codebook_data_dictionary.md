@@ -4,7 +4,7 @@
 **Authors:** Daniela Marques (IFSP), André Luiz Satoshi Kawamoto (UTFPR), Valéria Farinazzo Martins (Universidade Presbiteriana Mackenzie)  
 **Publication Target:** CLEI Electronic Journal (CLEI EJ)  
 **License:** Creative Commons Attribution 4.0 International (CC-BY 4.0)  
-**Permanent DOI:** [10.5281/zenodo.24170706](https://zenodo.org/records/24170706)  
+**Permanent DOI:** [10.5281/zenodo.24198695](https://zenodo.org/records/24198695)  
 **Language:** English / Portuguese (Instruments)  
 
 ---
@@ -76,6 +76,6 @@ If using this dataset, please cite:
   author={Marques, Daniela and Kawamoto, Andr{\'e} Luiz Satoshi and Martins, Val{\'e}ria Farinazzo},
   journal={CLEI Electronic Journal},
   year={2026},
-  note={Replication Dataset on Zenodo: DOI: 10.5281/zenodo.24170706}
+  note={Replication Dataset on Zenodo: DOI: 10.5281/zenodo.24198695}
 }
 ```

@@ -1,6 +1,6 @@
 # Replication Package: Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24170706.svg)](https://doi.org/10.5281/zenodo.24170706)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24198695.svg)](https://doi.org/10.5281/zenodo.24198695)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/alkawamo/clei-genai-study/blob/main/notebooks/clei_replication_analysis.ipynb)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
