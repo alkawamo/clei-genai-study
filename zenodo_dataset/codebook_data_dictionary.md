@@ -1,9 +1,10 @@
 # Codebook and Data Dictionary: Student Acceptance and Interaction with Generative AI in UI Design
 
-**Zenodo Package Title:** Replication Package for "Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design: An Extended Experimental Investigation"  
+**Zenodo Package Title:** Replication Package for "Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design: An Experimental Investigation"  
 **Authors:** Daniela Marques (IFSP), André Luiz Satoshi Kawamoto (UTFPR), Valéria Farinazzo Martins (Universidade Presbiteriana Mackenzie)  
 **Publication Target:** CLEI Electronic Journal (CLEI EJ)  
 **License:** Creative Commons Attribution 4.0 International (CC-BY 4.0)  
+**Permanent DOI:** [10.5281/zenodo.24170706](https://zenodo.org/records/24170706)  
 **Language:** English / Portuguese (Instruments)  
 
 ---
@@ -71,7 +72,7 @@ Contains the calculated construct means, construct deltas ($\Delta = \text{Post}
 If using this dataset, please cite:
 ```bibtex
 @article{marques2026student,
-  title={Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design: An Extended Experimental Investigation},
+  title={Student Acceptance and Interaction Patterns with Generative AI in Accessible UI Design: An Experimental Investigation},
   author={Marques, Daniela and Kawamoto, Andr{\'e} Luiz Satoshi and Martins, Val{\'e}ria Farinazzo},
   journal={CLEI Electronic Journal},
   year={2026},

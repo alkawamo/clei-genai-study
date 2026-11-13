@@ -56,7 +56,7 @@ S\~{a}o Paulo-SP, Brazil \\
 \begin{abstract}
 \noindent This study investigates higher education computing students' technology acceptance, behavioral interaction dynamics, and interface design quality when using Generative Artificial Intelligence (GenAI) for accessible user interface (UI) design. Specifically, the task focused on redesigning a browser-based interactive game for older adults. Employing a one-group pretest-posttest experimental methodology, we measured perceptual shifts across the constructs of the Unified Theory of Acceptance and Use of Technology (UTAUT) model. The quantitative survey ($N = 41$) was triangulated with an objective accessibility heuristic audit of student-generated software artifacts ($N = 26$) and a qualitative thematic analysis of conversational prompt engineering transcripts.
 
-Results from paired-sample Student's $t$-tests and Wilcoxon signed-rank tests indicated that the instructional intervention did not produce statistically significant changes in overall technology acceptance ($p > 0.05$, $|d| \le 0.23$). We demonstrate that this stability is attributable to a pronounced baseline ceiling effect ($M > 4.2$ across constructs), reflecting prior positive exposure to LLMs among senior computer science undergraduates. Crucially, non-parametric subgroup analysis revealed that novice GenAI users experienced statistically significant positive shifts in Perceived Usefulness ($\Delta = +1.13, p = 0.018$) and Behavioral Intention ($\Delta = +0.93, p = 0.027$), while experienced users remained stable. Behavioral prompt logs revealed an inverse relationship between UI design expertise and prompting ease: advanced designers executed significantly more prompt attempts ($M = 7.0$) than novices ($M = 2.8$), actively detecting AI-introduced regressions and demanding strict semantic WAI-ARIA and contrast compliance. The objective code audit revealed high adoption of straightforward modifications (100\% font scaling, 100\% speed control, 92.3\% multimodal audio), but lower adoption of complex accessibility standards (61.5\% WAI-ARIA semantics, 26.9\% high-contrast toggles). We discuss the theoretical limitations of deterministic acceptance frameworks for non-deterministic GenAI tools and propose an actionable four-phase pedagogical framework for computing curricula.
+Results from paired-sample Student's $t$-tests and Wilcoxon signed-rank tests indicated that the instructional intervention did not produce statistically significant positive shifts in overall technology acceptance across primary constructs ($p > 0.05$ for PE and EE). We demonstrate that this stability is attributable to a pronounced baseline ceiling effect ($M > 4.2$ across constructs), reflecting prior positive exposure to LLMs among senior computer science undergraduates. Exploratory non-parametric subgroup analysis revealed that novice GenAI users ($n = 5$) experienced substantial directional positive gains in Perceived Usefulness ($\Delta = +0.67, p = 0.004$) and Behavioral Intention ($\Delta = +0.67, p = 0.006$), while experienced users remained stable. Behavioral prompt logs revealed an inverse relationship between UI design expertise and prompting ease: advanced designers executed significantly more prompt attempts ($M = 7.0$) than novices ($M = 2.8$), actively detecting AI-introduced regressions and demanding strict semantic WAI-ARIA and contrast compliance. The objective code audit revealed high adoption of visual modifications (100\% font scaling, 100\% speed control, 100\% textual color labels, 92.3\% multimodal audio), but lower adoption of complex assistive and stateful standards (69.2\% keyboard navigation, 61.5\% WAI-ARIA semantics, 50.0\% round feedback, 30.8\% high-contrast toggles). We discuss the theoretical limitations of deterministic acceptance frameworks for non-deterministic GenAI tools, address multiple testing considerations, and propose an actionable four-phase pedagogical framework for computing curricula.
 \end{abstract}
 
 \keywords{Generative Artificial Intelligence, Human-Computer Interaction, Technology Acceptance Model, UTAUT, Prompt Engineering, Accessibility, Gerontechnology, Computing Education, Open Science.}
@@ -73,7 +73,7 @@ To investigate these phenomena, this study conducts an empirical investigation e
 \begin{enumerate}[label=(\roman*)]
     \item \textbf{An Objective Heuristic Accessibility Audit:} We perform a systematic code audit of 26 student-submitted HTML5/JavaScript implementations, quantifying the implementation rates of eight critical accessibility heuristics tailored to older adults.
     \item \textbf{A Qualitative Taxonomy of Prompt Engineering Strategies:} We analyze student dialogue transcripts to examine how prompt structures evolve across iterations, revealing why design expertise correlates with greater prompting friction.
-    \item \textbf{Granular Item-Level and Subgroup Inferential Statistics:} We report non-parametric Wilcoxon signed-rank tests, Cohen's $d$ effect sizes, and Mann-Whitney U subgroup comparisons, proving that the intervention had a statistically significant transformative impact on GenAI novices.
+    \item \textbf{Granular Item-Level and Subgroup Inferential Statistics:} We report non-parametric Wilcoxon signed-rank tests, Cohen's $d$ effect sizes, and Mann-Whitney U subgroup comparisons, providing empirical evidence that the intervention spurred statistically significant adoption shifts among GenAI novices.
     \item \textbf{A Qualitative Thematic Analysis of Student Feedback:} We synthesize open-ended reflections on the cognitive challenges of prompt crafting, tool limitations, and the indispensability of human judgment.
     \item \textbf{An Actionable Pedagogical Framework for HCI Education:} We formulate structured guidelines and evaluation rubrics for computing educators seeking to responsibly integrate generative tools into interaction design courses.
     \item \textbf{A Complete Open Science Replication Package:} We provide a persistent Zenodo dataset deposit with an assigned DOI and an executable Google Colab notebook for automated replication.
@@ -224,7 +224,7 @@ Analysis of prior interface development experience within the paired cohort ($N 
 In terms of prior GenAI exposure, 87.8\% ($n = 36$) had utilized generative assistants prior to the study, primarily for content analysis (40\%), data processing (29\%), interface creation (20\%), and general academic assistance (11\%). Only 12.2\% ($n = 5$) were complete GenAI novices. Crucially, baseline pre-test scores revealed an exceptionally high pre-existing acceptance level: baseline means were 4.22 for Performance Expectancy, 4.30 for Effort Expectancy, 4.51 for Facilitating Conditions, and 4.24 for Behavioral Intention.
 
 \subsection{Scale Reliability Analysis}
-To verify the internal consistency of the measurement scales, Cronbach's alpha coefficients ($\alpha$) were calculated for each construct in both pre-test and post-test administrations. As presented in Table \ref{tab:reliability}, all constructs exhibited acceptable to good reliability ($\alpha \ge 0.70$) in the pre-test. In the post-test, Effort Expectancy showed a notable increase in consistency ($\alpha = 0.754 \to 0.891$), indicating that hands-on interaction consolidated students' shared understanding of operational effort. The minor decline in post-test Performance Expectancy ($\alpha = 0.619$) and Behavioral Intention ($\alpha = 0.565$) reflects slight internal divergence as some students encountered prompting friction while others experienced seamless code generation.
+To verify the internal consistency of the measurement scales, Cronbach's alpha coefficients ($\alpha$) were calculated for each construct in both pre-test and post-test administrations. As presented in Table \ref{tab:reliability}, all constructs exhibited acceptable to good reliability ($\alpha \ge 0.70$) in the pre-test. In the post-test, Social Influence ($\alpha = 0.775$), Facilitating Conditions ($\alpha = 0.789$), and Behavioral Intention ($\alpha = 0.824$) maintained robust consistency. The moderate decrease in post-test Performance Expectancy ($\alpha = 0.639$) and Effort Expectancy ($\alpha = 0.658$) reflects nuanced divergence in student experiences: while some participants achieved rapid success with ChatGPT, others encountered conversational debugging friction, diversifying item responses post-intervention.
 
 \begin{table}[ht]
 \centering
@@ -234,17 +234,17 @@ To verify the internal consistency of the measurement scales, Cronbach's alpha c
 \toprule
 \textbf{UTAUT Construct} & \textbf{Pre-Test $\alpha$} & \textbf{Post-Test $\alpha$} \\
 \midrule
-Performance Expectancy (PE) & 0.768 & 0.619 \\
-Effort Expectancy (EE)      & 0.754 & 0.891 \\
-Social Influence (SI)       & 0.843 & 0.801 \\
-Facilitating Conditions (FC) & 0.826 & 0.750 \\
-Behavioral Intention (BI)   & 0.810 & 0.565 \\
+Performance Expectancy (PE) & 0.768 & 0.639 \\
+Effort Expectancy (EE)      & 0.754 & 0.658 \\
+Social Influence (SI)       & 0.843 & 0.775 \\
+Facilitating Conditions (FC) & 0.826 & 0.789 \\
+Behavioral Intention (BI)   & 0.873 & 0.824 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Paired Inferential Testing: Parametric and Non-Parametric}
-To evaluate whether the instructional workshop and practical task induced significant changes in technology acceptance, we conducted both paired-sample Student's $t$-tests and non-parametric Wilcoxon signed-rank tests \cite{wilcoxon1945individual} ($N = 41$). Standardized effect sizes were calculated using Cohen's $d$ for paired observations \cite{cohen1988statistical} ($d = \bar{D} / s_D$). Usability perceptions and task friction were contextualized following standardized usability evaluation metrics \cite{finstad2010usability}.
+To evaluate whether the instructional workshop and practical task induced significant changes in technology acceptance, we conducted both paired-sample Student's $t$-tests and non-parametric Wilcoxon signed-rank tests \cite{wilcoxon1945individual} ($N = 41$). Following standard statistical practice, the $t$-statistic is reported with the convention of $\text{Post} - \text{Pre}$ (yielding positive values for construct gains). For the Wilcoxon test, the standard test statistic $W$ is calculated with zero differences excluded (reporting effective sample size $N_{\text{eff}}$) \cite{wilcoxon1945individual}. Standardized effect sizes were calculated using Cohen's $d$ for paired observations \cite{cohen1988statistical} ($d = \bar{D} / s_D$). Usability perceptions and task friction were contextualized following standardized usability evaluation metrics \cite{finstad2010usability}.
 
 Table \ref{tab:paired_tests} provides the comparative results.
 
@@ -255,19 +255,19 @@ Table \ref{tab:paired_tests} provides the comparative results.
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccccccc}
 \toprule
-\textbf{Construct} & \textbf{Pre Mean (SD)} & \textbf{Post Mean (SD)} & \textbf{Mean $\Delta$} & \textbf{$t$-statistic} & \textbf{$p$-value ($t$)} & \textbf{Wilcoxon $W$} & \textbf{$p$-value ($W$)} & \textbf{Cohen's $d$} \\
+\textbf{Construct} & \textbf{Pre Mean (SD)} & \textbf{Post Mean (SD)} & \textbf{Mean $\Delta$} & \textbf{$t$-statistic} & \textbf{$p$-value ($t$)} & \textbf{Wilcoxon $W$ ($N_{\text{eff}}$)} & \textbf{$p$-value ($W$)} & \textbf{Cohen's $d$} \\
 \midrule
-Performance Expectancy (PE) & 4.22 (0.64) & 4.35 (0.58) & +0.13 & -0.93 & 0.355 & 184.0 & 0.312 & 0.15 \\
-Effort Expectancy (EE)      & 4.30 (0.59) & 4.47 (0.61) & +0.17 & -1.28 & 0.216 & 165.5 & 0.184 & 0.20 \\
-Social Influence (SI)       & 3.92 (0.76) & 3.76 (0.82) & -0.16 & +0.79 & 0.433 & 210.0 & 0.418 & -0.12 \\
-Facilitating Conditions (FC)& 4.51 (0.52) & 4.28 (0.67) & -0.23 & +1.42 & 0.162 & 245.5 & 0.139 & -0.22 \\
-Behavioral Intention (BI)   & 4.24 (0.68) & 4.45 (0.54) & +0.21 & -1.46 & 0.153 & 142.0 & 0.127 & 0.23 \\
+Performance Expectancy (PE) & 4.22 (0.75) & 4.28 (0.65) & +0.06 & +1.16 & 0.252 & 19.0 (11) & 0.230 & +0.18 \\
+Effort Expectancy (EE)      & 4.30 (0.75) & 4.37 (0.69) & +0.07 & +1.67 & 0.103 & 10.5 (10) & 0.093 & +0.26 \\
+Social Influence (SI)       & 3.92 (0.94) & 3.79 (0.91) & -0.13 & -2.82 & 0.007 & 22.0 (18) & 0.006 & -0.44 \\
+Facilitating Conditions (FC)& 4.51 (0.75) & 4.37 (0.78) & -0.15 & -4.72 & <0.001& 0.0 (16)  & <0.001& -0.74 \\
+Behavioral Intention (BI)   & 4.24 (0.88) & 4.36 (0.80) & +0.12 & +2.64 & 0.012 & 20.0 (15) & 0.025 & +0.41 \\
 \bottomrule
 \end{tabular}%
 }
 \end{table*}
 
-As demonstrated in Table \ref{tab:paired_tests}, none of the observed construct shifts reached statistical significance ($p > 0.05$ across both parametric and non-parametric tests). All Cohen's $d$ values were small ($|d| \le 0.23$). Performance Expectancy (+0.13), Effort Expectancy (+0.17), and Behavioral Intention (+0.21) exhibited modest upward trajectories, whereas Social Influence (-0.16) and Facilitating Conditions (-0.23) showed slight downward adjustments.
+As demonstrated in Table \ref{tab:paired_tests}, Performance Expectancy (+0.06, $p = 0.230$) and Effort Expectancy (+0.07, $p = 0.093$) exhibited stable, non-significant shifts ($p > 0.05$), confirming the baseline ceiling effect. Conversely, Facilitating Conditions exhibited a significant downward adjustment (-0.15, $p < 0.001$, Cohen's $d = -0.74$), reflecting students' firsthand encounter with conversational tooling boundaries. Behavioral Intention showed a modest upward gain (+0.12, $p = 0.025$), while Social Influence experienced a minor contraction (-0.13, $p = 0.006$). However, when applying Bonferroni correction for multiple hypothesis testing across the five constructs ($\alpha_{\text{adjusted}} = 0.05 / 5 = 0.010$), only the decline in Facilitating Conditions and Social Influence survive as statistically robust shifts.
 
 \subsection{Granular Item-by-Item Statistical Analysis}
 To examine whether specific questionnaire items exhibited meaningful movement masked by aggregate construct averaging, we performed a granular item-level longitudinal evaluation across all 15 survey statements. Table \ref{tab:item_level} presents the item means, standard deviations, and Wilcoxon signed-rank test statistics.
@@ -279,33 +279,33 @@ To examine whether specific questionnaire items exhibited meaningful movement ma
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccccc}
 \toprule
-\textbf{Item Code} & \textbf{Pre Mean (SD)} & \textbf{Post Mean (SD)} & \textbf{Item $\Delta$} & \textbf{Wilcoxon $W$} & \textbf{$p$-value} & \textbf{Item Summary} \\
+\textbf{Item Code} & \textbf{Pre Mean (SD)} & \textbf{Post Mean (SD)} & \textbf{Item $\Delta$} & \textbf{Wilcoxon $W$ ($N_{\text{eff}}$)} & \textbf{$p$-value} & \textbf{Item Summary} \\
 \midrule
-PE1 & 4.15 (0.76) & 4.32 (0.69) & +0.17 & 112.5 & 0.248 & Improved interface quality \\
-PE2 & 4.32 (0.69) & 4.41 (0.67) & +0.09 & 130.0 & 0.461 & Increased design productivity \\
-PE3 & 4.20 (0.78) & 4.32 (0.72) & +0.12 & 125.0 & 0.389 & Fostered design innovation \\
+PE1 & 4.15 (0.76) & 4.24 (0.66) & +0.10 & 42.0 (15) & 0.485 & Improved interface quality \\
+PE2 & 4.32 (0.69) & 4.32 (0.69) & +0.00 & 47.5 (13) & 0.963 & Increased design productivity \\
+PE3 & 4.20 (0.78) & 4.27 (0.67) & +0.07 & 48.0 (14) & 0.640 & Fostered design innovation \\
 \midrule
-EE1 & 4.24 (0.66) & 4.46 (0.67) & +0.22 & 98.0  & 0.142 & Ease of use and lack of complication \\
-EE2 & 4.41 (0.63) & 4.54 (0.59) & +0.13 & 105.0 & 0.285 & Rapid learning curve \\
-EE3 & 4.24 (0.73) & 4.41 (0.71) & +0.17 & 115.0 & 0.210 & Intuitive design interaction \\
+EE1 & 4.24 (0.66) & 4.27 (0.67) & +0.02 & 38.0 (12) & 0.887 & Ease of use and lack of complication \\
+EE2 & 4.41 (0.63) & 4.51 (0.64) & +0.10 & 21.0 (11) & 0.297 & Rapid learning curve \\
+EE3 & 4.24 (0.73) & 4.32 (0.76) & +0.07 & 35.0 (12) & 0.675 & Intuitive design interaction \\
 \midrule
-SI1 & 3.83 (0.89) & 3.66 (0.91) & -0.17 & 140.0 & 0.320 & Peer encouragement \\
-SI2 & 4.02 (0.79) & 3.88 (0.87) & -0.14 & 155.0 & 0.412 & Professional community prestige \\
-SI3 & 3.90 (0.83) & 3.73 (0.89) & -0.17 & 148.0 & 0.355 & Organizational/peer support \\
+SI1 & 3.83 (0.89) & 3.61 (0.86) & -0.22 & 29.0 (16) & 0.074 & Peer encouragement \\
+SI2 & 4.02 (0.79) & 3.90 (0.86) & -0.12 & 45.0 (15) & 0.339 & Professional community prestige \\
+SI3 & 3.90 (0.83) & 3.85 (0.85) & -0.05 & 40.5 (14) & 0.686 & Organizational/peer support \\
 \midrule
-FC1 & 4.61 (0.54) & 4.34 (0.76) & -0.27 & 185.0 & 0.088 & Technical infrastructure availability \\
-FC2 & 4.49 (0.60) & 4.24 (0.73) & -0.25 & 172.0 & 0.115 & Necessary resources and guidance \\
-FC3 & 4.44 (0.63) & 4.27 (0.71) & -0.17 & 160.0 & 0.245 & Compatibility with workflows \\
+FC1 & 4.61 (0.54) & 4.46 (0.67) & -0.15 & 26.0 (15) & 0.106 & Technical infrastructure availability \\
+FC2 & 4.49 (0.60) & 4.32 (0.72) & -0.17 & 19.5 (15) & 0.061 & Necessary resources and guidance \\
+FC3 & 4.44 (0.63) & 4.32 (0.69) & -0.12 & 21.5 (13) & 0.183 & Compatibility with workflows \\
 \midrule
-BI1 & 4.34 (0.73) & 4.51 (0.59) & +0.17 & 92.0  & 0.180 & Intention to use in future projects \\
-BI2 & 4.10 (0.80) & 4.37 (0.66) & +0.27 & 85.5  & 0.092 & Regular incorporation into workflows \\
-BI3 & 4.29 (0.75) & 4.46 (0.64) & +0.17 & 102.0 & 0.215 & Willingness to recommend to peers \\
+BI1 & 4.34 (0.73) & 4.46 (0.64) & +0.12 & 28.5 (13) & 0.292 & Intention to use in future projects \\
+BI2 & 4.10 (0.80) & 4.29 (0.72) & +0.20 & 26.5 (15) & 0.108 & Regular incorporation into workflows \\
+BI3 & 4.29 (0.75) & 4.34 (0.73) & +0.05 & 43.5 (13) & 0.871 & Willingness to recommend to peers \\
 \bottomrule
 \end{tabular}%
 }
 \end{table*}
 
-The item-level breakdown reveals that the largest positive movement occurred in BI2 (+0.27) and EE1 (+0.22), reflecting sustained student willingness to embed generative tools into future development routines. Conversely, FC1 exhibited the sharpest contraction (-0.27, $p = 0.088$), providing empirical evidence that hands-on usage revealed unexpected infrastructural limitations in conversational interfaces.
+The item-level breakdown reveals that the largest positive movement occurred in BI2 (+0.20), BI1 (+0.12), and EE2 (+0.10), reflecting sustained student willingness to embed generative tools into future development routines. Conversely, all three Facilitating Conditions items contracted consistently (FC1: -0.15, FC2: -0.17, FC3: -0.12), alongside Social Influence items (most noticeably SI1: -0.22, $p = 0.074$), providing empirical evidence that hands-on usage revealed unexpected infrastructural friction and tempered uncritical peer enthusiasm.
 
 \subsection{Subgroup Inferential Analysis: The Transformative Impact on Novices}
 While aggregate cohort analysis showed minimal change, disaggregating participants by prior GenAI exposure revealed stark differences. Participants were divided into GenAI Novices ($n = 5$, who had never used generative AI before) and Experienced GenAI Users ($n = 36$).
@@ -321,17 +321,17 @@ We executed the non-parametric Mann-Whitney U test on the calculated delta score
 \toprule
 \textbf{Construct} & \textbf{Novices ($n=5$)} & \textbf{Experienced ($n=36$)} & \textbf{Mann-Whitney $U$} & \textbf{$p$-value} \\
 \midrule
-Performance Exp. (PE) & \textbf{+1.13} & -0.01 & 28.5 & \textbf{0.018}* \\
-Effort Expectancy (EE)& \textbf{+0.80} & +0.08 & 41.0 & 0.082 \\
-Social Influence (SI) & 0.00          & -0.18 & 65.0 & 0.384 \\
-Facilitating Cond. (FC)& -0.10        & -0.25 & 72.0 & 0.512 \\
-Behavioral Intent. (BI)& \textbf{+0.93} & +0.11 & 32.0 & \textbf{0.027}* \\
+Performance Exp. (PE) & \textbf{+0.67} & -0.03 & 17.5 & \textbf{0.004}* \\
+Effort Expectancy (EE)& \textbf{+0.53} & 0.00  & 19.5 & \textbf{0.005}* \\
+Social Influence (SI) & 0.00          & -0.15 & 67.5 & 0.370 \\
+Facilitating Cond. (FC)& 0.00         & -0.17 & 50.0 & 0.111 \\
+Behavioral Intent. (BI)& \textbf{+0.67} & +0.05 & 20.5 & \textbf{0.006}* \\
 \bottomrule
-\multicolumn{5}{l}{\footnotesize * Statistically significant at the $\alpha = 0.05$ level.}
+\multicolumn{5}{l}{\footnotesize * Statistically significant at the $\alpha = 0.05$ level and survives Bonferroni $\alpha_{\text{adj}} = 0.010$.}
 \end{tabular}
 \end{table}
 
-As proven in Table \ref{tab:subgroups}, GenAI novices demonstrated substantial and statistically significant positive gains in Perceived Usefulness ($\Delta = +1.13, p = 0.018$) and Behavioral Intention ($\Delta = +0.93, p = 0.027$). Effort Expectancy also showed a large directional gain ($\Delta = +0.80, p = 0.082$). In contrast, experienced users displayed essentially zero change ($-0.01$ for PE, $+0.08$ for EE, and $+0.11$ for BI). This proves that the short-term intervention was highly effective for unexposed learners, while existing acceptance models encountered a ceiling threshold among tech-savvy students.
+As shown in Table \ref{tab:subgroups}, GenAI novices demonstrated substantial and statistically significant positive gains in Performance Expectancy ($\Delta = +0.67, p = 0.004$), Effort Expectancy ($\Delta = +0.53, p = 0.005$), and Behavioral Intention ($\Delta = +0.67, p = 0.006$). Notably, all three positive shifts survive Bonferroni correction for five simultaneous subgroup tests ($\alpha_{\text{adj}} = 0.05 / 5 = 0.010$). In contrast, experienced users displayed essentially zero change ($-0.03$ for PE, $0.00$ for EE, and $+0.05$ for BI). While these non-parametric results provide compelling initial evidence that the intervention moved acceptance primarily among unexposed learners, we caution that the novice subgroup is small ($n = 5$); thus, these findings should be interpreted as promising exploratory evidence warranting replication across larger novice cohorts.
 
 \subsection{Design Experience vs. Prompting Friction}
 An analysis of self-reported and verified prompt attempt counts revealed a compelling behavioral paradox: students with greater prior interface development expertise engaged in substantially more prompt refinements than novice designers. Of the 41 paired survey respondents, $n = 36$ participants reported numerical prompt iteration counts in the post-test survey, while 5 provided exclusively qualitative evaluations. Furthermore, $N = 26$ participants submitted both complete conversational interaction transcripts (PDFs) and executable HTML5/JavaScript source code artifacts, enabling the objective heuristic code audit detailed in Section \ref{sec:audit}.
@@ -423,20 +423,20 @@ As visually illustrated in Figure \ref{fig:interfaces_comparison}, students acti
 \midrule
 Font Size Scaling / Typography & 26 & 100.0\% & Use of relative units (rem/em) or enlarged base fonts ($>18$px) for presbyopia. \\
 Pacing and Timing Control       & 26 & 100.0\% & Slowed interval timers ($>1200$ms) or configurable delays for cognitive pacing. \\
+Textual Color Name Labels      & 26 & 100.0\% & Explicit text labels (e.g., ``Verde'', ``Azul'') inside quadrants to support color-blind users. \\
 Multimodal Audio Feedback      & 24 & 92.3\%  & Distinct audio tone frequencies paired with visual activation cues. \\
-Explicit Round State Indicator  & 19 & 73.1\%  & Persistent textual display of round count (e.g., ``Rodada 3'') to offload working memory. \\
 Full Keyboard Navigation       & 18 & 69.2\%  & Accessible focus management and event listeners for keyboard operation (Tab, Enter, Space). \\
 WAI-ARIA Semantic Attributes   & 16 & 61.5\%  & Semantic markup utilizing \texttt{aria-label}, \texttt{role="status"}, and \texttt{aria-live}. \\
-Textual Color Name Labels      & 16 & 61.5\%  & Explicit text labels (e.g., ``Verde'', ``Azul'') inside quadrants to support color-blind users. \\
-High-Contrast / Dark Theme     & 7  & 26.9\%  & Persistent, user-toggleable high-contrast or light/dark theme switch. \\
+Explicit Round State Indicator  & 13 & 50.0\%  & Persistent textual display of round count (e.g., ``Rodada 3'') to offload working memory. \\
+High-Contrast / Dark Theme     & 8  & 30.8\%  & Persistent, user-toggleable high-contrast or light/dark theme switch. \\
 \bottomrule
 \end{tabularx}
 \end{table*}
 
 The empirical audit reveals a critical dichotomy:
 \begin{itemize}[leftmargin=*]
-    \item \textbf{High-Compliance Features (Easily Articulated in Natural Language):} Features that map directly to high-level conversational commands achieved near-universal compliance: 100\% of submissions implemented enlarged typography and slowed sequence pacing, while 92.3\% incorporated multimodal audio feedback.
-    \item \textbf{Low-Compliance Features (Architecturally Complex):} Features requiring deeper frontend architectural engineering exhibited significantly lower compliance. Only 61.5\% of submissions incorporated semantic WAI-ARIA tags, and only 26.9\% successfully implemented a functional, contrast-preserving theme toggle. In several instances, ChatGPT generated visually appealing buttons that lacked keyboard event listeners or screen-reader announcements, proving that generative models frequently produce superficial visual accommodations while omitting deep accessibility compliance unless human designers explicitly enforce it.
+    \item \textbf{High-Compliance Features (Easily Articulated in Natural Language):} Features that map directly to high-level conversational commands achieved universal or near-universal compliance: 100\% of submissions implemented enlarged typography, slowed sequence pacing, and explicit textual color name labels, while 92.3\% incorporated multimodal audio feedback.
+    \item \textbf{Low-Compliance Features (Architecturally Complex):} Features requiring deeper frontend architectural engineering or state management exhibited significantly lower compliance. While full keyboard navigation reached 69.2\% and semantic WAI-ARIA tags reached 61.5\%, only 50.0\% of submissions incorporated persistent round state indicators, and only 30.8\% successfully implemented a functional, contrast-preserving theme toggle. In several instances, ChatGPT generated visually appealing buttons that lacked keyboard event listeners or screen-reader announcements, demonstrating that generative models frequently produce superficial visual accommodations while omitting deep accessibility compliance unless human designers iteratively enforce it.
 \end{itemize}
 
 \subsection{Thematic Analysis of Qualitative Student Reflections}
@@ -523,7 +523,7 @@ Our empirical findings conceptualize a vital distinction within the construct of
 While $\text{Effort}_{\text{Input}}$ (typing a prompt in natural language) is minimal, $\text{Effort}_{\text{Refinement}}$ (evaluating generated code, tracing regressions, and formulating corrective instructions) introduces substantial cognitive friction. This explains why experienced designers conducted significantly more prompt iterations ($M = 7.0$) and exhibited a negative correlation with Effort Expectancy shift ($\rho = -0.342$). Experienced developers refused to accept superficial outputs, spending substantial effort steering the model toward rigorous accessibility compliance.
 
 \subsection{Reality Calibration: Declines in Facilitating Conditions and Social Influence}
-The slight post-intervention decreases in Facilitating Conditions ($4.51 \to 4.28$) and Social Influence ($3.92 \to 3.76$) offer profound theoretical insight. Before hands-on task execution, students held highly optimistic, idealized perceptions regarding institutional and technical support. Direct interaction with ChatGPT acted as a \textit{reality calibrator}: students discovered that generic conversational interfaces lack integrated code compilers, automated accessibility linters, and version branching. Similarly, firsthand struggle with prompt debugging reduced reliance on generalized peer hype, replacing social hearsay with pragmatic, experiential skepticism.
+The slight post-intervention decreases in Facilitating Conditions ($4.51 \to 4.37$) and Social Influence ($3.92 \to 3.79$) offer profound theoretical insight. Before hands-on task execution, students held highly optimistic, idealized perceptions regarding institutional and technical support. Direct interaction with ChatGPT acted as a \textit{reality calibrator}: students discovered that generic conversational interfaces lack integrated code compilers, automated accessibility linters, and version branching. Similarly, firsthand struggle with prompt debugging reduced reliance on generalized peer hype, replacing social hearsay with pragmatic, experiential skepticism.
 
 \section{Actionable Pedagogical Guidelines for Computing Curricula}
 \label{sec:guidelines}
@@ -559,7 +559,7 @@ This experimental investigation analyzed computing students' acceptance, prompt 
 
 \begin{itemize}[leftmargin=*]
     \item \textbf{Theoretical Contributions:} We challenged the linear assumptions of traditional technology acceptance models (UTAUT) when applied to non-deterministic GenAI tools. We conceptualized the bifurcation of Effort Expectancy into initial input ease versus prompt refinement friction, and theorized the reality-calibrating effect of hands-on usage on Facilitating Conditions.
-    \item \textbf{Empirical Contributions:} We provided quantitative evidence of a ceiling effect in tech-savvy cohorts, proved that GenAI novices experience statistically significant positive adoption shifts ($\Delta PU = +1.13, p = 0.018$), demonstrated that design expertise correlates with greater prompting iterations ($M = 7.0$ vs. $2.8$), and audited the objective accessibility compliance of 26 student-generated software artifacts.
+    \item \textbf{Empirical Contributions:} We provided quantitative evidence of a baseline ceiling effect in tech-savvy cohorts, demonstrated that GenAI novices experience statistically significant positive adoption shifts ($\Delta \text{PE} = +0.67, p = 0.004; \Delta \text{BI} = +0.67, p = 0.006$), revealed that prior design expertise is associated with greater prompting iterations ($M = 7.0$ vs. $2.8$), and audited the objective accessibility compliance of 26 student-generated software artifacts.
     \item \textbf{Pedagogical Contributions:} We formulated an actionable four-phase framework for integrating GenAI into interaction design curricula, emphasizing constraint-based prompting and mandatory heuristic auditing.
 \end{itemize}
 
